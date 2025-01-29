@@ -28,7 +28,7 @@
 \fancyhf{}
 % Remove line
 \renewcommand{\headrulewidth}{0pt}
-\cfoot{\fontsize{9pt}{11pt}\selectfont Aaron Wang}
+\cfoot{\fontsize{9pt}{11pt}\selectfont Aaron Wang + SonGeo}
 \setlength{\footskip}{16pt} % amount to move footer by
 % Remember to call your parents and tell them you love them!
 
@@ -71,28 +71,6 @@
 \setlength{\postmulticols}{1pt}
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
-<<<<<<< Updated upstream
-% -----------------------------------------------------------------------
-% ----------------------------------------------------------------
-\section{Statistics}
-\subsection{Discrete Distributions}
-\textbf{Binomial} - number of successes $x$ in $n$ events, each with $p$ probability $\to \binom{n}x p^x q^{n-x}$, with $\mu = np$ and $\delta^2 = npq$. If n = 1, this is Bernoulli.
-
-\textbf{Geometric} - first success with $p$ probability on the $n^{th}$ trial $\to q^{n-1}p$, with mean = $1/p$
-
-\textbf{Negative Binomial} - number of failures before $r$ successes 
-
-\textbf{Hypergeometric} - number of successes $x$ in a size $N$ population with $n$ draws, without replacement. $\mu=n\frac{x}{N}$ 
-
-\textbf{Poisson} - number of successes $x$ in a fixed time interval, where success occurs at an average rate $\lambda$ $\to$ $\frac{\lambda^xe^{-\lambda}}{x!}$. $\mu = \delta^2 = \lambda$
-
-
-% -----------------------------------------------------------------------
-\subsection{Continuous Distributions} 
-\textbf{Normal/Gaussian} $N(\mu,\sigma$), Standard Normal $Z \sim N(0, 1)$
-
-Central Limit Theorem - sample mean of i.i.d. data approaches normal distribution 
-=======
 % --------------------------------------------------------------
 \section{Distributions}
 \subsection{Discrete}
@@ -102,7 +80,6 @@ Central Limit Theorem - sample mean of i.i.d. data approaches normal distributio
 \vspace{-.5mm}
 \item If n = 1, this is a Bernoulli distribution
 \end{itemize}
->>>>>>> Stashed changes
 
 \textbf{Geometric} - first success with $p$ probability on the $n^{th}$ trial $\to q^{n-1}p$, with $\mu = 1/p$ and $\sigma^2 = \frac{1-p}{p^2}$
 
@@ -240,32 +217,20 @@ by solving $\hat{\beta}$ = $(X^{T}X)^{-1}X^{T}Y$ which minimizes the SSE
 
 Add a penalty $\lambda$ for large coefficients to the cost function, which reduces overfitting. Requires normalized data.
 
-<<<<<<< Updated upstream
-\textbf{Subset}  ($L_0$): $\lambda ||\hat{\beta}||_0 = \lambda (number \;of\;non\hspace{-.7mm}-\hspace{-.7mm}zero\; variables)$ 
-=======
 \textbf{Subset}  $(L_0)$: $\lambda ||\hat{\beta}||_0 = \lambda (number \;of\;non\hspace{-.7mm}-\hspace{-.7mm}zero\; variables)$
->>>>>>> Stashed changes
 \begin{itemize}[label={--},leftmargin=4mm]
 \vspace{-1mm}
 \itemsep -.4mm
 \item Computationally slow, need to fit $2^k$ models
 \item Alternatives: forward and backward stepwise selection
 \end{itemize}
-<<<<<<< Updated upstream
-\textbf{LASSO}  ($L_1$): $\lambda ||\hat{\beta}||_1 = \lambda\sum | \hat{\beta} |$
-=======
 \textbf{LASSO} $(L_1)$: $\lambda ||\hat{\beta}||_1 = \lambda\sum | \hat{\beta} |$
->>>>>>> Stashed changes
 \begin{itemize}[label={--},leftmargin=4mm]
 \vspace{-1mm}
 \itemsep -.4mm
 \item Shrinks coefficients to zero, and is robust to outliers
 \end{itemize}
-<<<<<<< Updated upstream
-\textbf{Ridge}  ($L_2$): $\lambda ||\hat{\beta}||_2 = \lambda\sum( \hat{\beta})^2$ 
-=======
 \textbf{Ridge}  $(L_2)$: $\lambda ||\hat{\beta}||_2 = \lambda\sum( \hat{\beta})^2$
->>>>>>> Stashed changes
 \begin{itemize}[label={--},leftmargin=4mm]
 \vspace{-1mm}
 \itemsep -.4mm
@@ -313,15 +278,9 @@ where $\hat{p_i}$ is the probability of a sample being in category $i$.
 Possible measures, each with a max impurity of 0.5.
 \begin{itemize}[label={--},leftmargin=4mm]
 \vspace{-1mm}
-<<<<<<< Updated upstream
-\itemsep -.4mm 
-\item Gini impurity = $\sum_i (\hat{p_i})^2$ 
-\item Cross-Entropy = $-\sum_i (\hat{p_i}) log_2(\hat{p_i})$ 
-=======
 \itemsep -.4mm
 \item Gini Impurity = 1$ - \sum (\hat{p_i})^2$
 \item Cross Entropy = $-\sum (\hat{p_i}) log_2(\hat{p_i})$
->>>>>>> Stashed changes
 \end{itemize}
 At each leaf node, CART predicts the most frequent category, assuming false negative and false positive costs are the same. The splitting process handles multicollinearity and outliers. Trees are prone to high variance, so tune through CV.
 
@@ -813,7 +772,7 @@ Anomaly detection techniques spans a wide range, including methods based on:
 \textbf{Autoencoders} - unsupervised neural networks that compress data through an encoder and reconstruct it using a decoder. Autoencoders do not reconstruct the data perfectly, but rather focus on capturing important features in the data.
 \begin{center}
 \vspace{-2mm}
-    \includegraphics[scale = .19]{images/autoencodeerNew.JPG}
+    \includegraphics[scale = .07]{images/autoencodeer1.JPG}
     \vspace{-2mm}
 \end{center}
 The decoder struggles to capture anomalous patterns, and the reconstruction error acts as a score to detect anomalies.
@@ -901,51 +860,6 @@ Classifies data using the label with the highest conditional probability, given 
 %------------------------------------------------------
 \textcolor{white}{.}\vspace{-5mm}\\ % Add space above column
 \section{Statistics}
-$\boldsymbol p$\textbf{-value} - probability that an effect could have occurred by chance. If less than the significance level $\alpha$, or if the test statistic is greater than the critical value, then reject the null.
-
-\textbf{Type I Error} (False Positive $\alpha$) - rejecting a true null
-
-\textbf{Type II  Error} (False Negative $\beta$)  - not rejecting a false null
-
-Decreasing Type I Error causes an increase in Type II Error
-
-\textbf{Confidence Level} (1 - $\alpha$) - probability of finding an effect that did not occur by chance and avoiding a Type I error
-
-\textbf{Power} (1 - $\beta$) - probability of picking up on an effect that is present and avoiding a Type II Error
-
-\textbf{Confidence Interval} - estimated interval that models the long-term frequency of capturing the true parameter value
-
-$\boldsymbol{z}$\textbf{-test} - tests whether normally distributed population means are different, used when $n$ is large and variances are known
-\vspace{-.5mm}
-\begin{itemize}[label={--},leftmargin=4mm]
-    \itemsep -.4mm
-    \item z-score - the number of standard deviations between a data point $x$ and the mean $\to \frac{x - \mu}{\sigma}$
-\end{itemize}
-\vspace{-.5mm}
-$\boldsymbol{t}$\textbf{-test} - used when population variances are unknown, and converges to the $z$-test when $n$ is large
-\vspace{-.5mm}
-\begin{itemize}[label={--},leftmargin=4mm]
-    \itemsep -.4mm
-    \item t-score - uses the standard error as an estimate for population variance $\to \frac{x - \mu}{s/\sqrt{n}}$
-\end{itemize}
-\vspace{-1mm}
-\textbf{Degrees of Freedom} - the number of independent (free) dimensions needed before the parameter estimate can be determined
-
-\textbf{Chi-Square Tests} - measure differences between categorical variables, using $\chi^2$ = $\sum \frac{observed - expected}{expected}$ to test:
-\begin{itemize}[label={--},leftmargin=4mm]
-    \itemsep -.4mm
-    \item Goodness of fit - if samples of one categorical variable match the population category expectations
-    \item Independence -  if being in one category is independent of another, based off two categories
-    \item Homogeneity - if different subgroups come from the same population, based off a single category
-\end{itemize}
-
-\textbf{ANOVA} - analysis of variance, used to compare 3$\plus$ samples
-\begin{itemize}[label={--},leftmargin=4mm]
-    \itemsep -.4mm
-    \item F-score - compares the ratio of explained and unexplained variance $\to \frac{\text{between group variance}}{\text{within group variance}}$
-\end{itemize}
-
-\smallskip
 
 \textbf{Conditional Probability} $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$
 
@@ -953,11 +867,7 @@ If $A$ and $B$ are independent, then $P(A \cap B) = P(A) P(B)$.\\
 Note, events that are independent of themselves must have
 probability either 1 or 0.
 
-
 \textbf{Union} $P(A \cup B) = P(A) + P(B) - P(A \cap B) $
-
-\textbf{Mutually Exclusive} - events cannot happen simultaneously
-\smallskip
 
 \textbf{Expected Value} $E[X] = \sum x_i p_i$, with properties
     \begin{itemize}[label={--},leftmargin=4mm]
@@ -981,7 +891,89 @@ Independent variables are uncorrelated,  though the inverse is not necessarily t
 
 \newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
 \newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+
+\textbf{Confidence Interval} - estimated interval that models the long-term frequency of capturing the true parameter value
+
+\textbf{Confidence Level} (1 - $\alpha$) - probability of finding an effect that did not occur by chance and avoiding a Type I error
+
+\subsubsection{Hypothesis Testing} 
+\vspace{-.6mm}
+Hypothesis testing is a statistical method to evaluate whether there is enough evidence in a sample to infer a condition about the population.
+
+\textbf{Steps in Hypothesis Testing:}
+\vspace{-.4mm}
+\begin{enumerate}[leftmargin=5mm]
+    \item Define Hypotheses: $H_0$ vs $H_a$
+    \itemsep -.6mm
+    \item Choose Significance Level $\boldsymbol{\alpha}$ (e.g., 0.05, 0.01)
+    \itemsep -.6mm
+    \item Compute the Test Statistic (e.g., $z$-test, $t$-test, $\chi^2$).
+    \itemsep -.6mm
+    \item Determine the $\boldsymbol p$\textbf{-value}: P(stat$|H_0$ is True) 
+    Probability of observing the test statistic as extreme or more extreme if $H_0$ is true.
+    \itemsep -.6mm
+    \item Decision Rule: $p < \alpha$ reject $H_0$ in favor of $H_a$ if the test statistic falls in the critical region.
+    $p > \alpha$ fail to reject $H_0$
+\end{enumerate}
+
+\textbf{- Type I Error:} (False Positive $\alpha$) rejecting a true null
+
+\textbf{- Type II Error:} (False Negative $\beta$) not rejecting a false null
+
+Decreasing Type I Error causes an increase in Type II Error
+
 \smallskip
+\textbf{p-value:} The probability of obtaining results as extreme as observed, assuming $H_0$ is true. Note:
+\begin{itemize}[label={--},leftmargin=4mm]
+    \itemsep -.8mm
+    \item A small $p-value < \alpha$ suggests strong evidence against $H_0$.
+    \itemsep -.8mm
+    \item A large $p-value > \alpha$ suggests insufficient evidence to reject $H_0$.
+\end{itemize}
+
+\textbf{Power:} (1 - $\beta$) The probability of correctly rejecting $H_0$ when it is false. Higher power reduces the risk of Type II Error and depends on:
+\begin{itemize}[label={--},leftmargin=4mm]
+    \itemsep -.8mm
+    \item Sample size (larger sample = higher power).
+    \itemsep -.4mm
+    \item Effect size (stronger effect = higher power).
+    \itemsep -.4mm
+    \item Significance level $\alpha$ (higher $\alpha$ = higher power).
+\end{itemize}
+
+\subsubsection{Common Hypothesis Tests:}
+\vspace{-.6mm}
+
+\textbf{- $\boldsymbol{z}$-test:} Tests whether normally distributed population means are different, used when $n$ is large and variances are known. For large sample sizes or known population variance. 
+\vspace{-.5mm}
+\quad z-score: the number of standard deviations between a data point $x$ and the mean $\to \frac{x - \mu}{\sigma}$
+\vspace{-.5mm}
+
+\textbf{- $\boldsymbol{t}$-test:} Used when population variances are unknown, and converges to the $z$-test when $n$ is large
+\vspace{-.5mm}
+\quad t-score: uses the standard error as an estimate for population variance $\to \frac{x - \mu}{s/\sqrt{n}}$
+\vspace{-.5mm}
+
+\textbf{- Chi-Square Tests:} measure differences between categorical variables, using $\chi^2$ = $\sum \frac{observed - expected}{expected}$ to test:
+\begin{itemize}[label={--},leftmargin=4mm]
+    \itemsep -.4mm
+    \item Goodness of fit - if samples of one categorical variable match the population category expectations
+    \item Independence -  if being in one category is independent of another, based off two categories
+    \item Homogeneity - if different subgroups come from the same population, based off a single category
+\end{itemize}
+
+\textbf{- ANOVA:} Tests if three or more group means differ.analysis of variance, used to compare 3$\plus$ samples
+\begin{itemize}[label={--},leftmargin=4mm]
+    \itemsep -.6mm
+    \item F-score - compares the ratio of explained and unexplained variance $\to \frac{\text{between group variance}}{\text{within group variance}}$
+\end{itemize}
+
+\textbf{- Mann-Whitney U-test:} Non-parametric test for differences between two independent groups.
+
+\textbf{- Wilcoxon Signed-Rank Test:} Non-parametric test for paired data.
+
+\textbf{- Kolmogorov-Smirnov Test:} Compares a sample to a reference distribution or two samples to each other.
+
 
 \section{A/B Testing}
 Examines user experience through randomized tests with two variants.
@@ -996,33 +988,125 @@ The typical steps are:
 \end{enumerate}
 
 The required sample size depends on $\alpha$, $\beta$, and the MDE
-\textbf{Minimum Detectable Effect} - the target relative minimum increase over the baseline that should be observed from a test
+\textbf{Minimum Detectable Effect} the target relative minimum increase over the baseline that should be observed from a test
 \vspace{.5mm}
 
-\textbf{Overall Evaluation Criterion} - quantitative measure of the test's objective, commonly used when short and long-term metrics have inverse relationships
+\textbf{Overall Evaluation Criterion} quantitative measure of the test's objective, commonly used when short and long-term metrics have inverse relationships
 \vspace{.7mm}
 
-\textbf{Multivariate Testing} - compares 3$\plus$ variants or combinations, but requires larger sample sizes
+\textbf{Multivariate Testing} compares 3$\plus$ variants or combinations, but requires larger sample sizes
 
-\textbf{Bonferroni Correction} - when conducting $n$ tests,
+\textbf{Bonferroni Correction} when conducting $n$ tests,
 run each test at the $\frac{\alpha}{n}$ significance level, which lowers the false positive rate of finding effects by chance
 \vspace{.7mm}
 
-\textbf{Network Effects} - changes that occur due to effect spillover from other groups. To detect group interference:
+\textbf{Network Effects} changes that occur due to effect spillover from other groups. To detect group interference:
 \begin{enumerate}[leftmargin=5mm]
     \itemsep -.4mm
     \item Split the population into distinct clusters
+    \itemsep -.4mm
     \item Randomly assign half the clusters to the control and treatment groups $A_1$ and $B_1$
-    \item Randomize the other half at the user-level and assign to control and treatment groups
-    $A_2$ and $B_2$
+    \itemsep -.4mm
+    \item Randomize the other half at the user-level and assign to control and treatment groups $A_2$ and $B_2$
+    \itemsep -.4mm
     \item Intuitively, if there are network effects, then the tests will have different results
 \end{enumerate}
 To account for network effects, randomize users based on time, cluster, or location
-\smallskip
 
-\textbf{Sequential Testing} - allows for early experiment stopping by drawing statistical borders based on the Type I Error rate. If the effect reaches a border, the test can be stopped. Used to combat \emph{peeking} (preliminarily checking results of a test), which can inflate $p$-values and lead to incorrect conclusions.
+\textbf{Sequential Testing} allows for early experiment stopping by drawing statistical borders based on the Type I Error rate. If the effect reaches a border, the test can be stopped. Used to combat \emph{peeking} (preliminarily checking results of a test), which can inflate $p$-values and lead to incorrect conclusions.
 
-\textbf{Cohort Analysis} - examines specific groups of users based on behavior or time and can help identify whether novelty or primacy effects are present
+\textbf{Cohort Analysis} examines specific groups of users based on behavior or time and can help identify whether novelty or primacy effects are present
+
+\subsubsection{Design of experiment}
+\vspace{-.8mm}
+Systematic approach for planning tests and analyzing data to evaluate the effect of changes in independent variables on dependent variables.
+
+\textbf{Factors:} Independent variables manipulated in the experiment (e.g., water level for crops).
+    
+\textbf{Levels:} Specific values that factors can take (e.g., low, medium, high).
+    
+\textbf{Response:} The dependent variable being measured (e.g., yield in tons per hectare).
+    
+\textbf{Experimental Unit:} The entity or subject to which treatments are applied (e.g., individual plots of land).
+
+\vspace{.4mm}
+\textbf{Three Principles of Experimental Design:}
+\vspace{-.9mm}
+\begin{itemize}[label={--},leftmargin=3mm]
+    \setlength{\itemsep}{-0.9mm}
+    \item \textbf{Replication:} Repeating the experiment to increase precision and reduce error. 
+    \item \textbf{Randomization:} Assigning treatments randomly to eliminate bias.
+    \item \textbf{Blocking:} Grouping units with similar characteristics to control noise (e.g., soil type).
+\end{itemize}
+
+\vspace{-.8mm}
+Types of Designs:
+\vspace{-.9mm}
+\begin{itemize}[label={--},leftmargin=3mm]
+    \setlength{\itemsep}{-0.9mm}
+    \item \textbf{Completely Randomized Design:} Treatments are assigned randomly without blocking. Suitable for homogeneous conditions.
+    \item \textbf{Randomized Complete Block Design:} Controls for variability between blocks while testing treatments (e.g., blocking by soil type).
+    \item \textbf{Factorial Design:} Examines the effects of multiple factors simultaneously, including their interactions.
+    \item \textbf{Combined Block and Factorial Design:} Includes blocking and multiple factors for enhanced precision and interaction analysis.
+\end{itemize}
+
+\begin{center}
+    \vspace{-1mm}
+    \includegraphics[scale = .2]{images/doe_designs.png}
+\end{center}
+\vspace{-2mm}
+
+\vspace{-.8mm}
+Statistical Analysis:
+\vspace{-.9mm}
+\begin{itemize}[label={--},leftmargin=3mm]
+    \setlength{\itemsep}{-0.7mm}
+    \item \textbf{Analysis of Variance (ANOVA):} Decomposes total variability into variability due to factors and residual (error).
+    \item \textbf{Fixed Effects Model:} Assumes levels of factors are fixed and conclusions apply only to those levels.
+    \item \textbf{Random Effects Model:} Assumes levels are randomly sampled from a population.
+\end{itemize}
+
+
+
+
+\section{Causality}
+Causality examines whether a change in one variable (cause) directly leads to a change in another variable (effect). 
+
+\textbf{Potential Outcomes Framework:}
+\begin{itemize}[label={--},leftmargin=2mm]
+    \itemsep -.4mm
+    \item $Y_i(1)$: Outcome for unit $i$ under treatment
+    \item $Y_i(0)$: Outcome for unit $i$ under control
+    \item \textbf{Observed outcome} is 
+    $Y_i = T_i Y_i(1) + (1 - T_i) Y_i(0)$
+    where $T_i = 1$ if treated and $T_i = 0$ otherwise.
+    \item \textbf{Causal Effect:} $Y_i(1) - Y_i(0)$
+    \item \textbf{\emph{Fundamental Problem of Causal Inference}:} We can only observe one of $Y_i(1)$ or $Y_i(0)$, not both.
+
+\end{itemize}
+
+Tools like directed acyclic graphs (DAGs) are often used to visualize causal relationships and identify confounders to control for.
+
+\textbf{Stable Unit Treatment Value Assumption (SUTVA):}
+\begin{itemize}[label={--},leftmargin=3mm]
+    \setlength{\itemsep}{-0.8mm}
+    \item Ensures that the potential outcomes of a unit depend only on its own treatment status, not on the treatment of others.
+    \item \textbf{No Hidden Variations in Treatment:} Treatment should be consistently applied across units.
+    \item \textbf{No Interference Between Units:} The treatment assignment of one unit should not affect another unit's outcome.
+    \item Violations occur in spillover effects, contagion, or network settings.
+\end{itemize}
+
+\textbf{Key Methods in Causal Inference:}
+\begin{itemize}[label={--},leftmargin=2mm]
+    \setlength{\itemsep}{-0.8mm}
+    \item \textbf{Randomized Controlled Trials (RCTs)}: Random assignment ensures groups are balanced, eliminating confounding effects.
+    \item \textbf{Propensity Score Matching (PSM)}: Matches treated and untreated units with similar covariates to mimic randomization.
+    \item \textbf{Difference-in-Differences (DiD)}: Compares changes over time between treated and untreated groups, controlling for common trends.
+    \item \textbf{Instrumental Variables (IV)}: Uses external instruments to isolate exogenous variation in the treatment variable.
+    \item \textbf{Regression Discontinuity Design (RDD)}: Exploits a cutoff or threshold to estimate causal effects near the boundary.
+    \item \textbf{Synthetic Control}: Constructs a weighted combination of untreated units to estimate the counterfactual for a treated unit (useful for policy evaluations).
+\end{itemize}
+
 
 \section{Miscellaneous}
 \textbf{Shapley Values} - measures the marginal contribution of each variable in the output of a model, where the sum of all Shapley values equals the total value (prediction $-$ mean prediction)
